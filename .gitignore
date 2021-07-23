@@ -36,5 +36,11 @@
 *.out
 *.app
 
+# Microsoft Linker files
+*.ilk
+
+# Program Debug DB
+*.pdb
+
 # End of https://www.toptal.com/developers/gitignore/api/c++
 {"mode":"full","isActive":false}
