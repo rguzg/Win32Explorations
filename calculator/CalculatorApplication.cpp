@@ -10,25 +10,43 @@
 */
 using namespace std;
 
+// This function clears cin's error flags and clears its buffer
+void FixBadInput(){
+    cin.clear();
+    
+    // Ignore all characters until the next new line
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 int main(){
-    double x = 0.0;
-    double y = 0.0;
     double result = 0.0;
-    char operand = '+';
 
     cout << "This is a Cool Calculator Console Application \n";
 
     Calculator c;
 
     while(true){
+        double x = NULL;
+        double y = NULL;
+        char operand = NULL;
+
         cout << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b \n";
 
         cin >> x >> operand >> y;
         
         try {
+            // This pretty much means that the user entered a non-numeric value for x or y
+            if(cin.fail()){
+                throw std::runtime_error("An invalid operation was entered");
+            }
+            
             result = c.Calculate(x,operand,y);
         } catch(const std::runtime_error& e) {
             cout << e.what() << "\n";
+
+            // If c has thrown an error, then its likely that cin is in an error state, so we'll clear its error flags and flush the buffer
+            FixBadInput();
+
             continue;
         }        
 
