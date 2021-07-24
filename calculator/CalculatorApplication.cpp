@@ -23,7 +23,14 @@ int main(){
 
     while(true){
         cin >> x >> operand >> y;
-        result = c.Calculate(x,operand,y);
+        
+        try {
+            result = c.Calculate(x,operand,y);
+        } catch(const std::runtime_error& e) {
+            cout << "Cannot divide by zero. Please try again \n";
+            continue;
+        }        
+
         cout << "The result is: " << result << "\n";
     }
 
