@@ -28,7 +28,7 @@ int main(){
         try {
             result = c.Calculate(x,operand,y);
         } catch(const std::runtime_error& e) {
-            cout << "Cannot divide by zero. Please try again \n";
+            cout << e.what() << "\n";
             continue;
         }        
 
