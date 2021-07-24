@@ -16,6 +16,6 @@ double Calculator::Calculate(double x, char operand, double y){
 
             return x / y;
         default:
-            return 0.0;
+            throw std::runtime_error("Invalid operand");
     }
 }
