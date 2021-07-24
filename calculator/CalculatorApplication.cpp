@@ -17,11 +17,12 @@ int main(){
     char operand = '+';
 
     cout << "This is a Cool Calculator Console Application \n";
-    cout << "Please enter the operaation to perform. Format: a+b | a-b | a*b | a/b \n";
 
     Calculator c;
 
     while(true){
+        cout << "Please enter the operation to perform. Format: a+b | a-b | a*b | a/b \n";
+
         cin >> x >> operand >> y;
         
         try {
