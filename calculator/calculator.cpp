@@ -1,16 +1,16 @@
-/* 
-    Angled brakets (<>) are used when including stuff from the standard library
-    Quotations ("") are used to include regular files
-*/
-#include <iostream>
+#include "Calculator.h"
 
-/*
-    Denote that the scope for the file is the standard library
-*/
-using namespace std;
-
-int main(){
-    cout << "This is a Cool Calculator Console Application \n";
-
-    return 0;
+double Calculator::Calculate(double x, char operand, double y){
+    switch(operand){
+        case '+':
+            return x + y;
+        case '-':
+            return x - y;
+        case '*':
+            return x * y;
+        case '/':
+            return x / y;
+        default:
+            return 0.0;
+    }
 }
