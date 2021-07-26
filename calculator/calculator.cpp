@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include "Calculator.h"
+#include "Exceptions.cpp"
 
 double Calculator::Calculate(double x, char operand, double y){
     switch(operand){
@@ -11,11 +12,11 @@ double Calculator::Calculate(double x, char operand, double y){
             return x * y;
         case '/':
             if(y == 0){
-                throw std::runtime_error("Cannot divide by zero");
+                throw DivideByZeroError();
             }
 
             return x / y;
         default:
-            throw std::runtime_error("Invalid operand");
+            throw InvalidOperationError();
     }
 }
