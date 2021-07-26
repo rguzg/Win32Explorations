@@ -4,6 +4,7 @@
 */
 #include <iostream>
 #include "Calculator.h"
+#include "Exceptions.cpp"
 
 /*
     Denote that the scope for the file is the standard library
@@ -37,11 +38,11 @@ int main(){
         try {
             // This pretty much means that the user entered a non-numeric value for x or y
             if(cin.fail()){
-                throw std::runtime_error("An invalid operation was entered");
+                throw InvalidOperationError();
             }
             
             result = c.Calculate(x,operand,y);
-        } catch(const std::runtime_error& e) {
+        } catch(exception& e) {
             cout << e.what() << "\n";
 
             // If c has thrown an error, then its likely that cin is in an error state, so we'll clear its error flags and flush the buffer
